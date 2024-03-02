@@ -6,11 +6,6 @@ possible_letters = ["", "", "", "", ""]
 rights = ["", "", "", "", ""]
 
 
-def bad_input():
-    print("Bad input")
-    exit()
-
-
 print("\n- Wordle Solver -\n")
 print("Usage: 0:grey, 1:orange, 2:green")  # alterar a forma de uso
 
@@ -21,7 +16,7 @@ for i in range(5):
     results = input("Results: ")
 
     if len(results) != 5:
-        bad_input()
+        exit("Bad input")
 
     for i in range(len(results)):
         if results[i] == "0":
@@ -31,7 +26,7 @@ for i in range(5):
         elif results[i] == "2":
             rights[i] = guess[i]
         else:
-            bad_input()
+            exit("Bad input")
 
     for word in words:
         valid_suggestion = True

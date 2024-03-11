@@ -6,8 +6,20 @@ possible_letters = ["", "", "", "", ""]
 rights = ["", "", "", "", ""]
 
 
+def suggestion(temp_suggestion):
+    suggestion_table = "\n Suggestions: \n"
+    count = 0
+    for word in temp_suggestion:
+        suggestion_table = suggestion_table + " | " + word
+        count += 1
+        if count >= 9:
+            suggestion_table = suggestion_table + " |\n"
+            count = 0
+    return suggestion_table
+
+
 print("\n- Wordle Solver -\n")
-print("Usage: 0:grey, 1:orange, 2:green")  # alterar a forma de uso
+print("Usage: 0:grey, 1:orange, 2:green") 
 
 for i in range(5):
     temp_suggestion = []
@@ -47,4 +59,4 @@ for i in range(5):
 
         if valid_suggestion == True:
             temp_suggestion.append(word)
-    print(temp_suggestion)
+    print(suggestion(temp_suggestion))
